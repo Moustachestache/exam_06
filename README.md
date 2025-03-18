@@ -12,7 +12,7 @@ code walkthrough : https://www.youtube.com/watch?v=hfQhGAinjS0&ab_channel=Glooti
 select() : https://www.youtube.com/watch?v=Y6pFtgRdUts&ab_channel=JacobSorber
 socket programming: https://www.youtube.com/watch?v=LtXEMwSG5-8&ab_channel=EduonixLearningSolutions
 linux socket api: https://www.youtube.com/watch?v=XXfdzwEsxFk&t=749s&ab_channel=ChrisKanich
-big playlist mayube skip it: https://www.youtube.com/watch?v=SrGyi0WOTBk&list=PLysdvSvCcUhbOBztd-CdB5fCXFrvwk107&index=1&ab_channel=IndronilBanerjee
+big playlist maybe skip it: https://www.youtube.com/watch?v=SrGyi0WOTBk&list=PLysdvSvCcUhbOBztd-CdB5fCXFrvwk107&index=1&ab_channel=IndronilBanerjee
 
 
 # allowed functions runthrough
@@ -35,11 +35,11 @@ strcpy - put arg1 into arg2 (copy str) - manage memory allocation yourself
 strcat - concatenates strings
 
 ### the stuff thats new
-select
 socket
+bind
+select
 accept
 listen
 send
 recv
-bind
 realloc
