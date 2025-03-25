@@ -2,10 +2,11 @@
 one last sigh for old time sake (not featuring Dr dre)
 
 # road to exam
-1. small http answer on defined port at runtime
+0. receive and print message from nc command
+1. small answer on defined port at runtime
 2. multiple connections saved and listed
-3. small client that connects, waits for message to be sent to said client.
-4. eeeeee
+3. manage answers
+4. disconnects
 
 # ressources
 code walkthrough : https://www.youtube.com/watch?v=hfQhGAinjS0&ab_channel=Glootie
