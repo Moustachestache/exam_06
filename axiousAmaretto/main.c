@@ -29,7 +29,6 @@ int main (void)
 	servaddr.sin_addr.s_addr = htonl(2130706433); //127.0.0.1
 	servaddr.sin_port = htons(8081); 
 
-
 	if (listen(sockfd, 10) != 0)
     {
 		printf("listenError\n"); 
@@ -61,7 +60,7 @@ int main (void)
                   fd_set *_Nullable restrict writefds,
                   fd_set *_Nullable restrict exceptfds,
                   struct timeval *_Nullable restrict timeout); */
-        select(maxfd + 1, &fd_set_read, &fd_set_write, NULL, 0);
+        select(maxfd + 1, &fd_set_read, &fd_set_write, NULL, &caca);
         //  read
         int i = 0;
         while(i < maxfd + 1)
