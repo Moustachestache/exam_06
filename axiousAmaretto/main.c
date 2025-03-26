@@ -29,6 +29,14 @@ int main (void)
 	servaddr.sin_addr.s_addr = htonl(2130706433); //127.0.0.1
 	servaddr.sin_port = htons(8081); 
 
+    //  bind()
+    // int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+    if (bind(sockfd, (struct sockaddr *) &servaddr, sizeof(servaddr)) == 1)
+    {
+		printf("bindError\n"); 
+		exit(1); 
+	}
+
 	if (listen(sockfd, 10) != 0)
     {
 		printf("listenError\n"); 
@@ -50,11 +58,12 @@ int main (void)
         while (connfd > 0)
         {
             FD_SET(connfd, &fd_set_backup);
-            connfd = accept(sockfd, (struct sockaddr *)&cli, &len);
             maxfd = connfd;
             printf("new connection on fd %i", connfd);
+            connfd = accept(sockfd, (struct sockaddr *)&cli, &len);
         }
         fd_set_read = fd_set_backup;
+        fd_set_write = fd_set_backup;
 
         /* int select(int nfds, fd_set *_Nullable restrict readfds,
                   fd_set *_Nullable restrict writefds,
@@ -69,6 +78,7 @@ int main (void)
             {
                 recv(i, readbuff, 1024, 0);
                 printf("%i says: %s\n", i, readbuff);
+                bzero(readbuff, 1024);
             }
             i++;
         }
