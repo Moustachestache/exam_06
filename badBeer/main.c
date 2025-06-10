@@ -19,7 +19,7 @@ int main() {
 	struct sockaddr_in servaddr, cli; 
 
 	// socket create and verification 
-	sockfd = socket(AF_INET, SOCK_STREAM, 0); 
+	sockfd = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0); 
 	maxFd = sockfd;
 	if (sockfd == -1) { 
 		printf("socket creation failed...\n"); 
@@ -61,7 +61,6 @@ int main() {
 	char buffer[1024];
 	while (1)
 	{
-		printf("loop!\n");
 		fd_write = fd_all;
 		fd_read = fd_all;
 		bzero(buffer, 1024);
@@ -82,24 +81,21 @@ int main() {
 		int i = 0;
 		while (i < maxFd + 1)
 		{
-				printf("pipi!\n");
 			if (FD_ISSET(i, &fd_write) > 0)
 			{
-				printf("isset!\n");
 				if (recv(i, buffer, 1024, 0) == 0)
 				{
 					printf("%i has left the chatte\n", connfd);
 					FD_CLR(i, &fd_all);
 				}
 				else
-				{
 					printf("%i: %s\n", connfd, buffer);
-				}
 				bzero(buffer, 1024);
 			}
 			i++;
 		}
 
 		//	write
+		sleep(1);
 	}
 }
